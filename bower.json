@@ -1,0 +1,20 @@
+{
+  "name": "modular",
+  "version": "0.0.0",
+  "homepage": "https://github.com/limhanchung/modular",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "gridly": "~1.2.4",
+    "jquery": "~2.1.1",
+    "oasis.js": "~0.4.0",
+    "pure": "~0.5.0"
+  }
+}
