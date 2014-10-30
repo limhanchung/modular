@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/jquery/dist/jquery.min.js"></script>
+  <script src="/oasis.js/dist/oasis.min.js.html"></script>
+  <script src="/javascripts/main.js"></script>
+  <link rel="stylesheet" href="/pure/pure-min.css">
+  <title>Modular</title>
+  <style>
+   html,body {
+     padding:0;
+     margin:0 auto;;
+     width: 200px;
+     height:310px;
+     background: #fff;
+     font-family: "proxima-nova",sans-serif;
+     color:#777;
+     line-height: 1.6em;
+   }
+   
+   h1, h2 {
+     font-size: 1.5em;
+     margin-bottom: 0.2em;
+     text-align: center;
+     padding:0;
+     margin:0;
+   }
+
+   h1 {
+     margin-bottom: 1em;
+   }
+
+   form {
+     height: 100%;
+   }
+   
+   #search {
+     margin: 0 auto;
+     text-align: center;
+   }
+  </style>
+</head>
+<body>
+  <form class="pure-form">
+    <h1>Nodeplant</h1>
+    <p>Nodeplant is a card ui platform</p>
+    <fieldset class="pure-group">
+      <input id="q" class="pure-input-1" type="text" placeholder="Search for card"/>
+    </fieldset>
+    <input id="s" class="pure-input-1 pure-button pure-button-primary" type="submit" value="submit" />
+  </form>
+  <script>
+    $(document).ready( function() {
+
+      oasis.connect('modular').then(function(port) {
+
+	$('#s').click(function(e) {
+
+	  var data = {
+	    target: qualifyURL('/static/result.html'),
+	    payload: $('#q').val(),
+	  };    
+	  port.send('data', data );
+
+	  var action = {
+	    target: [ '_self', qualifyURL('/static/search.html') ],
+	    'class' : 'pure-u-1 pure-u-md-1-4',
+	    'height' : document.body.scrollHeight + 'px',
+	    'width' : '100%',
+	  };    
+	  //      port.send('action', action );
+
+	  e.preventDefault();
+	  return false;
+	});
+
+	
+	
+	port.on('data', function(data) {
+	  // Do something
+	});
+      });
+    });
+
+  </script>
+</body>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/jquery/dist/jquery.min.js"></script>
+  <script src="/oasis.js/dist/oasis.min.js.html"></script>
+  <script src="/javascripts/main.js"></script>
+  <link rel="stylesheet" href="/pure/pure-min.css">
+  <title>Modular</title>
+  <style>
+   html,body {
+     padding:0;
+     margin:0 auto;;
+     width: 200px;
+     height:310px;
+     background: #fff;
+     font-family: "proxima-nova",sans-serif;
+     color:#777;
+     line-height: 1.6em;
+   }
+   
+   h1, h2 {
+     font-size: 1.5em;
+     margin-bottom: 0.2em;
+     text-align: center;
+     padding:0;
+     margin:0;
+   }
+
+   h1 {
+     margin-bottom: 1em;
+   }
+
+   ul {
+     margin:0 auto;
+     padding:0;
+     list-style:none;
+   }
+   
+   li {
+     padding:0;
+     margin:0;
+     margin-bottom:0.5em;
+   }
+
+   ;i
+
+  </style>
+</head>
+<body>
+    <h1>Nodeplant</h1>
+    <p>Nodeplant is a platform that allows you to connect card apps.</p>
+    <ul>
+      <li><a class="pure-button pure-button-primary" href="/static/about.html" />Learn more</a></li>
+    </ul>
+  <script>
+    $(document).ready( function() {
+
+      oasis.connect('modular').then(function(port) {
+
+       $('a').click(function(e) {
+	 var href = $(this).attr("href");
+	 var href = href == '#' ? '' : href;
+	 var data = {
+	   target: qualifyURL(href),
+	   payload: '',
+	 };    
+	 port.send('data', data );
+
+	 e.preventDefault();
+	 return false;
+       });	
+      });
+    });
+
+  </script>
+</body>

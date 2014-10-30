@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/jquery/dist/jquery.min.js"></script>
+  <script src="/oasis.js/dist/oasis.min.js.html"></script>
+  <script src="/javascripts/main.js"></script>
+  <link rel="stylesheet" href="/pure/pure-min.css">
+  <title>Modular</title>
+  <style>
+   html,body {
+     padding:0;
+     margin:0 auto;;
+     width: 200px;
+     height:310px;
+     background: #fff;
+     font-family: "proxima-nova",sans-serif;
+     color:#777;
+     line-height: 1.6em;
+     overflow:hidden;
+   }
+   
+   h1, h2 {
+     font-size: 1.5em;
+     margin-bottom: 0.2em;
+     text-align: center;
+     padding:0;
+     margin:0;
+   }
+
+   h1 {
+     margin-bottom: 1em;
+   }
+
+   form {
+     height: 100%;
+   }
+
+   a {
+     color: #3B8BBA;
+     text-decoration: none;
+   }
+  </style>
+</head>
+<body>  
+  <h2>Data transfer</h2>
+  <p>Card apps can be transfered from one card to the other.</p>
+  <form class="pure-form">
+    <fieldset class="pure-group">
+      <textarea id='t' class="pure-input-1" placeholder="Type here and see what happens!"></textarea>
+    </fieldset>
+  </form>
+  <script>
+   $(document).ready( function() {
+
+     oasis.connect('modular').then(function(port) {
+       port.send('connected');
+       port.on('data', function(data) {
+	 if (data.type  == 'data') {
+	   $('#t').val(data.payload);
+	 }
+       });
+
+
+       var oldVal = "";
+       $("#t").on("change keyup paste", function() {
+	 var currentVal = $(this).val();
+	 if(currentVal == oldVal) {
+           return; //check to prevent multiple simultaneous triggers
+	 }
+
+	 oldVal = currentVal;
+	 //action to be performed on textarea changed
+	 
+	 var data = {
+	   target: qualifyURL('/static/transferto.html'),
+	   payload: currentVal,
+	   type: 'data'
+	 };    
+	 port.send('data', data );
+       });
+       
+       
+     });
+   });   
+  </script>
+</body>

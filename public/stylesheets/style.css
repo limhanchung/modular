@@ -1,0 +1,10 @@
+html, body {
+    background: #eee;
+}
+
+iframe {
+    height: 320px;
+    width: 240px;
+    margin: 10px;
+    border: 0;
+}
