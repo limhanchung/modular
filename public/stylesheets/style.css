@@ -1,10 +1,132 @@
 html, body {
     background: #eee;
+    padding:0;
+    margin:0 auto;
+    font-family: "proxima-nova",sans-serif;
+    color:#777;
+    line-height: 1.6em;
 }
 
 iframe {
-    height: 320px;
-    width: 240px;
-    margin: 10px;
+    height: 440px;
+    width: 280px;
+    padding: 0;
     border: 0;
 }
+
+.card-app-outer {
+    text-align:center;
+    margin:0;
+    padding:0;
+}
+
+.card-app {
+    height: 440px;
+    width: 280px;
+    margin: 10px;
+    border: 0;
+    display:inline-block;
+    position:relative;
+    color:#777;
+}
+
+.remove {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
+    opacity: 0.5;
+    color: white;
+    background: #000;
+    display: block;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 30px;
+    font-size:30px;
+    text-decoration:none;
+}
+
+h1, h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.2em;
+    text-align: center;
+    padding:0;
+    margin:0;
+}
+
+h3 {
+    font-size: 1em;
+    margin-bottom: 1em;
+}
+
+
+
+#card-app-security {
+    margin: auto;
+    z-index:1002;
+    position:absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height:240px;
+    width:320px;
+    background: #fff;
+    padding: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display:none;
+}
+
+#card-app-security > p {
+    line-height:1.5em;
+    font-size:0.8em;
+}
+
+#card-app-security > ul {
+    padding:0;
+    list-style:none;
+}
+
+#card-app-security > ul > li {
+    padding:0;
+    margin:0;
+    font-size:0.8em;
+}
+
+#card-app-security > ul > li > label > input {
+}
+
+#card-app-security > ul > li > label > div {
+    display:inline;
+}
+
+#card-app-add {
+    margin: auto;
+    z-index:1002;
+    position:absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height:240px;
+    width:320px;
+    background: #fff;
+    padding: 10px;
+    display:none;
+}
+    
+#card-app-overlay {
+    display:none;
+    position: fixed;
+    z-index:1001;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    opacity: 0.5;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=.5)";
+}
+
+

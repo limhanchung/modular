@@ -3,18 +3,76 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="/jquery/dist/jquery.min.js"></script>
-  <script src="/oasis.js/dist/oasis.min.js.html"></script>
-  <script src="/javascripts/main.js"></script>
-  <script src="/javascripts/platform.js"></script>
-  <script src="/gridster.js/dist/jquery.gridster.js"  type="text/javascript" charset="utf-8"></script>
-  <script src="/gridly/javascripts/jquery.gridly.js" type="text/javascript"></script>
-  <link href="/gridly/stylesheets/jquery.gridly.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="/pure/pure-min.css">
-  <link rel="stylesheet" href="/stylesheets/style.css">  
-  <link rel="stylesheet" href="/gridster.js/dist/jquery.gridster.css">
-  <title>Nodeplant</title>
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="/pure/grids-responsive-old-ie.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="/pure/grids-responsive-min.css">
+<!--<![endif]-->
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/perfect-scrollbar/min/perfect-scrollbar.min.css">
+  <link rel="stylesheet" href="/pure/side-menu.css">
+  <title>Linkagram</title>
+  <style>
+  </style>
 </head>
 <body>
-  <div id="main" class="pure-g"></div>
+
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+      <span></span>
+    </a>
+
+    <div id="menu">
+      <div class="pure-menu pure-menu-open">
+        <a class="pure-menu-heading" href="#">Linkagram</a>
+        <ul id="card-app-ul">
+          <li id="card-app-add-modal-button"><a href="#">Add custom</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="main">
+      <div class="content">
+	<div id="card-app-store" class="pure-g"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="card-app-security">
+    <h3>Security permission check</h3>
+    <ul id="card-app-security-list">
+      <li>
+	<label class="pure-checkbox">
+	  <input type="checkbox" id="checkbox" value="address" checked="checked" /> www.google.com can load www.zenbox.com</label>  
+      </li>
+      <li>
+	<label class="pure-checkbox">
+	  <input type="checkbox" id="checkbox" value="address" checked="checked" /> www.google.com can load www.zenbox.com</label>  
+      </li>
+    </ul>
+    <button class="pure-button-primary pure-button">Accept</button>
+    <button class="pure-button">Cancel</button>
+  </div>
+
+  <div id="card-app-add">
+    <h3>Add custom linkagram app</h3>
+    <form id="card-app-add-modal-url" class="pure-form">
+      <fieldset class="pure-group">
+	<input id="card-app-add-url" name="cardAppUrl" class="pure-input-1" type="text" placeholder="Card app url">
+	<input id="card-app-add-name" name="cardAppName" class="pure-input-1" type="text" placeholder="Card app name(Optional)">
+      </fieldset>
+      <input id="card-app-add-button" class="pure-button-primary pure-button" type="submit" value="Add">
+      <input class="pure-button card-app-cancel-button" type="cancel" value="Cancel">
+    </form>
+  </div>
+  <div id="card-app-overlay"></div>
+  <script src="/jquery/dist/jquery.min.js"></script>
+  <script src="/oasis.js/dist/oasis.min.js.html"></script>
+  <script src="/perfect-scrollbar/min/perfect-scrollbar.min.js"></script>
+  <script src="/pure/ui.js"></script>
+  <script src="/javascripts/main.js"></script>  
+  <script src="/javascripts/platform.js"></script>
+
 </body>
